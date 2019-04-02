@@ -3,14 +3,15 @@
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
 		"urlCheck": true,
-		"es6": true,
+		"es6": false,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"appid": "wxc26ba547e1358c1d",
 	"projectname": "seu-career-guidance-cloud",
-	"libVersion": "2.2.5",
+	"libVersion": "2.6.2",
 	"condition": {
 		"search": {
 			"current": -1,

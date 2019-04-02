@@ -1,32 +1,39 @@
-<!--pages/main/main.wxml-->
+<!-- pages/main/main.wxml -->
 <view class="page">
     <view class="page__hd">
         <view class="page__title">就业指导中心搜索平台</view>
         <view class="page__desc">信息检索</view>
     </view>
     <view class="page__bd">
-        <view class="weui-cells__title">选择学院</view>
+        <view class="weui-cells__title">条件查询</view>
         <view class="weui-cells weui-cells_after-title">
-            <picker bindchange="bindPickerCollege" value="{{collegeIndex}}" range="{{college}}">
-                <view class="weui-cell">
-                    <view class="weui-cell__bd">学院</view>
-                    <view class="weui-cell__ft">{{collegeDisp}}</view>
+
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">学院</view>
                 </view>
-            </picker>
-        </view>
-
-
-
-        <view class="weui-cells__title">选择性别</view>
-        <view class="weui-cells weui-cells_after-title">
-            <picker bindchange="bindPickerGander" value="{{ganderIndex}}" range="{{gander}}">
-                <view class="weui-cell">
-                    <view class="weui-cell__bd">性别</view>
-                    <view class="weui-cell__ft">{{ganderDisp}}</view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindPickerCollege" value="{{collegeIndex}}" range="{{college}}">
+                        <view class="weui-select weui-select_in-select-after">
+                            {{collegeDisp}}
+                        </view>
+                    </picker>
                 </view>
-            </picker>
-        </view>
+            </view>
 
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">专业</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindPickerMajority" value="{{majorityIndex}}" range="{{majority}}" disabled="{{collegeIndex == 0}}">
+                        <view class="weui-select weui-select_in-select-after">
+                            {{majorityDisp}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+        </view>
         <view class="weui-cells__title">选择毕业年份</view>
         <view class="weui-cells weui-cells_after-title">
             <picker bindchange="bindPickerYear" value="{{yearIndex}}" range="{{year}}">
@@ -36,15 +43,8 @@
                 </view>
             </picker>
         </view>
-
-
-        
-        
-
-
     </view>
     <view class="page__bd page__bd_spacing">
-         <button class="weui-btn" type="primary">搜索</button>
+        <button class="weui-btn" type="primary">搜索</button>
     </view>
-
 </view>
