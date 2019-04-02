@@ -1,0 +1,50 @@
+<!--pages/main/main.wxml-->
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">就业指导中心搜索平台</view>
+        <view class="page__desc">信息检索</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-cells__title">选择学院</view>
+        <view class="weui-cells weui-cells_after-title">
+            <picker bindchange="bindPickerCollege" value="{{collegeIndex}}" range="{{college}}">
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">学院</view>
+                    <view class="weui-cell__ft">{{collegeDisp}}</view>
+                </view>
+            </picker>
+        </view>
+
+
+
+        <view class="weui-cells__title">选择性别</view>
+        <view class="weui-cells weui-cells_after-title">
+            <picker bindchange="bindPickerGander" value="{{ganderIndex}}" range="{{gander}}">
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">性别</view>
+                    <view class="weui-cell__ft">{{ganderDisp}}</view>
+                </view>
+            </picker>
+        </view>
+
+        <view class="weui-cells__title">选择毕业年份</view>
+        <view class="weui-cells weui-cells_after-title">
+            <picker bindchange="bindPickerYear" value="{{yearIndex}}" range="{{year}}">
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">毕业年份</view>
+                    <view class="weui-cell__ft">{{yearDisp}}</view>
+                </view>
+            </picker>
+        </view>
+
+
+        
+        
+
+
+    </view>
+    <view class="page__bd page__bd_spacing">
+         <button class="weui-btn" type="primary">搜索</button>
+    </view>
+
+</view>
