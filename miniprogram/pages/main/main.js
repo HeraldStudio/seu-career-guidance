@@ -143,6 +143,12 @@ Page({
     this.setData({
       name:e.detail.value
     })
+  },
+
+  bindSchoolnum: function(e){
+    this.setData({
+      schoolnum:e.detail.value
+    })
   }
 
 })
