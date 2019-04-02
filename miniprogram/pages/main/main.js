@@ -21,7 +21,7 @@ Page({
     ganderIndex: 0,
 
     entryDate: ['不限'],
-    entryDisp: '不限',
+    entryDateDisp: '不限',
     entryIndex: 0,
 
     graduationDate: ['不限'],
@@ -101,7 +101,6 @@ Page({
 
   bindPickerCollege: function (e) {
     //console.log('picker发送选择改变，携带值为', e.detail.value)
-    console.log(e.detail.value)
     this.setData({
       collegeIndex: e.detail.value,
       collegeDisp: this.data.college[e.detail.value].slice(0, 12) + (this.data.college[e.detail.value].length>12? '...' :''),
@@ -126,10 +125,17 @@ Page({
     })
   },
 
-  bindPickerYear: function(e){
+  bindPickerEntryDate: function(e){
     this.setData({
-      yearIndex:e.detail.value,
-      yearDisp:this.data.year[e.detail.value]
+      entryDateIndex:e.detail.value,
+      entryDateDisp:this.data.entryDate[e.detail.value]
+    })
+  },
+
+  bindPickerGraduationDate: function(e){
+    this.setData({
+      graduationDateIndex:e.detail.value,
+      graduationDateDisp:this.data.graduationDate[e.detail.value]
     })
   },
 

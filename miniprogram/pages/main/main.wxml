@@ -1,11 +1,11 @@
 <!-- pages/main/main.wxml -->
 <view class="page">
     <view class="page__hd">
-        <view class="page__title">就业指导中心搜索平台</view>
-        <view class="page__desc">信息检索</view>
+        <view class="page__title">学生就业信息检索</view>
+        <view class="page__desc">东南大学就业指导中心</view>
     </view>
     <view class="page__bd">
-        <view class="weui-cells__title">条件查询</view>
+        <view class="weui-cells__title">学院与专业</view>
         <view class="weui-cells weui-cells_after-title">
 
             <view class="weui-cell weui-cell_select">
@@ -34,15 +34,37 @@
                 </view>
             </view>
         </view>
-        <view class="weui-cells__title">选择毕业年份</view>
+
+        <view class="weui-cells__title">入学与毕业时间</view>
         <view class="weui-cells weui-cells_after-title">
-            <picker bindchange="bindPickerYear" value="{{yearIndex}}" range="{{year}}">
-                <view class="weui-cell">
-                    <view class="weui-cell__bd">毕业年份</view>
-                    <view class="weui-cell__ft">{{yearDisp}}</view>
+
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">入学时间</view>
                 </view>
-            </picker>
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindPickerEntryDate" value="{{entryDateIndex}}" range="{{entryDate}}">
+                        <view class="weui-select weui-select_in-select-after">
+                            {{entryDateDisp}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">毕业时间</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindPickerGraduationDate" value="{{graduationDateIndex}}" range="{{graduationDate}}">
+                        <view class="weui-select weui-select_in-select-after">
+                            {{graduationDateDisp}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
         </view>
+        
     </view>
     <view class="page__bd page__bd_spacing">
         <button class="weui-btn" type="primary">搜索</button>
