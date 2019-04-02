@@ -29,7 +29,9 @@ Page({
     graduationDateIndex: 0,
 
     name: '',
-    schoolnum: ''
+    schoolnum: '',
+    jydw:''
+
   },
 
   /**
@@ -149,6 +151,12 @@ Page({
     this.setData({
       schoolnum:e.detail.value
     })
-  }
+  },
+
+  bindJydw: function(e){
+    this.setData({
+      jydw:e.detail.value
+    })
+  },
 
 })

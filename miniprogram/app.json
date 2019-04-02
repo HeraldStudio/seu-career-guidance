@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/main/main"
+    "pages/search/search"
   ],
   "window":{
     "backgroundTextStyle":"light",

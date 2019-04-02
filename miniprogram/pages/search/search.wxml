@@ -85,7 +85,7 @@
                     <view class="weui-label">单位名称</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" bindinput="bindSchoolnum" placeholder="按就业单位名称查询" />
+                    <input class="weui-input" bindinput="bindJydw" placeholder="按就业单位名称查询" />
                 </view>
             </view>
         </view>
