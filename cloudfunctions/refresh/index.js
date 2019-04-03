@@ -16,6 +16,7 @@ exports.main = async (event, context) => {
   let entryDateMap = {}
   let graduationDateMap = {}
   let collegeMap = {}
+  let degreeMap = {}
 
   const LIMIT = 100
   let skip = 0
@@ -39,6 +40,10 @@ exports.main = async (event, context) => {
         entryDateMap[k.entryDate] = true
       }
 
+      if(k.degree){
+        degreeMap[k.degree] = true
+      }
+
       k.graduationDate = '' + k.graduationDate
       k.graduationDate = k.graduationDate.length === 4 ? '20' + k.graduationDate : k.graduationDate
       if(k.graduationDate){
@@ -57,7 +62,8 @@ exports.main = async (event, context) => {
   await db.collection('helper-data').add({data:{
     entryDate:Object.keys(entryDateMap),
     graduationDate:Object.keys(graduationDateMap),
-    collegeMap
+    collegeMap,
+    degree:Object.keys(degreeMap)
   }})
 
   return {
