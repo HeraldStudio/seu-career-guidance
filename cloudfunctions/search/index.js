@@ -2,7 +2,7 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init()
-db = cloud.datebase()
+const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
@@ -11,9 +11,34 @@ exports.main = async (event, context) => {
   // unionid: wxContext.UNIONID,
   // TODO: 鉴权
 
-  let {college, majority, entryDate, graduationDate, schoolnum, name, jydw} = event
+  let {college, majority, entryDate, graduationDate, schoolnum, name, sjgzdwmc, page=1, pagesize=100} = event
 
   if(schoolnum){
-    db.collection('origin-data').where({schoolnum})
+    let res = await db.collection('origin-data').where({schoolnum}).get()
+    return res.data
   }
+
+  if(name){
+    let res = await db.collection('origin-data').where({name}).get()
+    return res.data
+  }
+
+  // 以下为模糊查询
+  let query = {
+    college, majority, entryDate, graduationDate,
+    sjgzdwmc: sjgzdwmc ? db.RegExp({
+      regexp: `.*${sjgzdwmc}.*`,
+      options: 'i',
+    }):undefined
+  }
+
+  let count = (await db.collection('origin-data').where(query).count()).total
+  pagesize = pagesize > 100 ? 100 : pagesize
+  let res = await db.collection('origin-data').where(query).skip((page-1)*pagesize).limit(pagesize).get()
+
+  return {
+    count,
+    list:res.data
+  }
+
 }
