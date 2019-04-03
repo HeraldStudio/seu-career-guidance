@@ -15,6 +15,7 @@ Page({
     onLoad: async function (options) {
       // 获取辅助数据
       this.setData({query:JSON.parse(options.query)})
+      console.log(this.data.query)
       this.loadMore()
     },
     

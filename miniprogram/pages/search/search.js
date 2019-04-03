@@ -153,6 +153,7 @@ Page({
 
   bindPickerDegree: function(e){
     this.setData({
+      degreeIndex:e.detail.value,
       degreeDisp:this.data.degree[e.detail.value]
     })
   },
@@ -181,6 +182,7 @@ Page({
       majority: this.data.majorityIndex ? this.data.majority[this.data.majorityIndex] : undefined,
       entryDate: this.data.entryDateIndex ? this.data.entryDate[this.data.entryDateIndex] : undefined,
       graduationDate: this.data.graduationDateIndex ? this.data.graduationDate[this.data.graduationDateIndex] : undefined,
+      degree: this.data.degreeIndex ? this.data.degree[this.data.degreeIndex]:undefined,
       name: this.data.name,
       schoolnum: this.data.schoolnum,
       sjgzdwmc: this.data.jydw

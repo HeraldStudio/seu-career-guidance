@@ -27,7 +27,7 @@ exports.main = async (event, context) => {
 
   // 以下为模糊查询
   let query = {
-    college, majority, entryDate, graduationDate,degree,
+    college, majority, entryDate, graduationDate, degree,
     sjgzdwmc: sjgzdwmc ? db.RegExp({
       regexp: `.*${sjgzdwmc}.*`,
       options: 'i',
