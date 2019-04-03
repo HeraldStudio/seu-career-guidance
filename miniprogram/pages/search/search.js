@@ -1,4 +1,5 @@
 var base64 = require("../../images/base64");
+const qs = require('querystring')
 // pages/main/main.js
 Page({
 
@@ -158,5 +159,20 @@ Page({
       jydw:e.detail.value
     })
   },
+
+  bindSearch: function(e){
+    let query = {
+      college: this.data.collegeIndex ? this.data.college[this.data.collegeIndex] : undefined,
+      majority: this.data.majorityIndex ? this.data.majority[this.data.majorityIndex] : undefined,
+      entryDate: this.data.entryDateIndex ? this.data.entryDate[this.data.entryDateIndex] : undefined,
+      graduationDate: this.data.graduationDateIndex ? this.data.graduationDate[this.data.graduationDateIndex] : undefined,
+      name: this.data.name,
+      schoolnum: this.data.schoolnum,
+      sjgzdwmc: this.data.jydw
+    }
+    wx.navigateTo({
+      url:`/pages/list/list?query=${JSON.stringify(query)}`
+    })
+  }
 
 })
