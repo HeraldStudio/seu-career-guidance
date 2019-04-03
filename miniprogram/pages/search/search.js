@@ -27,6 +27,12 @@ Page({
     graduationDate: ['不限'],
     graduationDateDisp: '不限',
     graduationDateIndex: 0,
+    
+    degree:['不限'],
+    degreeDisp:'不限',
+    degreeIndex:0,
+
+
 
     name: '',
     schoolnum: '',
@@ -38,8 +44,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    // 获取辅助数据
+    //获取辅助数据
+    //爱的魔力转圈圈 加载样式
     wx.showLoading({title:'更新辅助数据'})
+    //调用云端函数加载数据
     let res = await wx.cloud.callFunction({
       name:'getHelperData'
     })
@@ -47,7 +55,8 @@ Page({
       collegeMap:res.result.collegeMap,
       entryDate:['不限', ...res.result.entryDate],
       graduationDate:['不限', ...res.result.graduationDate],
-      college:['不限', ...Object.keys(res.result.collegeMap)]
+      college:['不限', ...Object.keys(res.result.collegeMap)],
+      degree:['不限',...res.result.degree]
     })
     wx.hideLoading()
   },
@@ -138,6 +147,12 @@ Page({
     this.setData({
       graduationDateIndex:e.detail.value,
       graduationDateDisp:this.data.graduationDate[e.detail.value]
+    })
+  },
+
+  bindPickerDegree: function(e){
+    this.setData({
+      degreeDisp:this.data.degree[e.detail.value]
     })
   },
 

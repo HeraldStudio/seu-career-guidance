@@ -11,7 +11,7 @@ exports.main = async (event, context) => {
   // unionid: wxContext.UNIONID,
   // TODO: 鉴权
 
-  let {college, majority, entryDate, graduationDate, schoolnum, name, sjgzdwmc, page=1, pagesize=100} = event
+  let {college, majority, entryDate, graduationDate, schoolnum, name, sjgzdwmc, degree ,page=1, pagesize=100} = event
 
   if(schoolnum){
     let res = await db.collection('origin-data').where({schoolnum}).get()
@@ -23,9 +23,11 @@ exports.main = async (event, context) => {
     return res.data
   }
 
+
+
   // 以下为模糊查询
   let query = {
-    college, majority, entryDate, graduationDate,
+    college, majority, entryDate, graduationDate,degree,
     sjgzdwmc: sjgzdwmc ? db.RegExp({
       regexp: `.*${sjgzdwmc}.*`,
       options: 'i',
