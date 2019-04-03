@@ -2,7 +2,6 @@
 # yarn lockfile v1
 
 
-<<<<<<< HEAD
 querystring@^0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/querystring/download/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
@@ -11,9 +10,4 @@ querystring@^0.2.0:
 weui-wxss@^1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/weui-wxss/download/weui-wxss-1.1.1.tgz#9e52edb406d88e24cc2eb7a186ea7120dd6ff104"
-=======
-weui-wxss@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/weui-wxss/-/weui-wxss-1.1.1.tgz#9e52edb406d88e24cc2eb7a186ea7120dd6ff104"
->>>>>>> 248c86e97723be2d87b9365c1da8e3433a531a4d
   integrity sha1-nlLttAbYjiTMLrehhupxIN1v8QQ=
