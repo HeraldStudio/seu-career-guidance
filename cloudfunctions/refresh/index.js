@@ -23,15 +23,20 @@ exports.main = async (event, context) => {
   let partOfResult = []
   // 遍历整个数据库
   do {
+    //每次查询100条数据并返回结果
     let records = await db.collection('origin-data').skip(skip * LIMIT).limit(LIMIT).get()
     skip++
     partOfResult = records.data
     // 去重的工作
     partOfResult.forEach(k => {
-
+      
+      //转化为字符串
       k.entryDate = '' + k.entryDate
+      //改变格式，防止有1207这样的日期出现
       k.entryDate = k.entryDate.length === 4 ? '20' + k.entryDate : k.entryDate
       if(k.entryDate){
+        //entryDate不是空，加入到entryMap中
+        //以键值对的形式存放已经出现的entryDate
         entryDateMap[k.entryDate] = true
       }
 
@@ -44,11 +49,11 @@ exports.main = async (event, context) => {
       if(k.graduationDate){
         graduationDateMap[k.graduationDate] = true
       }
-
+      //collegeMap中没有出现相应的college，则把college加入到collegeMap中
       if(!collegeMap[k.college]){
         collegeMap[k.college] = {}
       }
-
+      //在college下添加majority
       collegeMap[k.college][k.majority] = true
     });
   } while (partOfResult.length !== 0)
