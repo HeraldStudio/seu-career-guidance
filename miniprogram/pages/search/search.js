@@ -177,16 +177,26 @@ Page({
   },
 
   bindSearch: function(e){
-    let query = {
-      college: this.data.collegeIndex ? this.data.college[this.data.collegeIndex] : undefined,
-      majority: this.data.majorityIndex ? this.data.majority[this.data.majorityIndex] : undefined,
-      entryDate: this.data.entryDateIndex ? this.data.entryDate[this.data.entryDateIndex] : undefined,
-      graduationDate: this.data.graduationDateIndex ? this.data.graduationDate[this.data.graduationDateIndex] : undefined,
-      degree: this.data.degreeIndex ? this.data.degree[this.data.degreeIndex]:undefined,
+    let query
+    
+    query = {
+      college: +this.data.collegeIndex ? this.data.college[this.data.collegeIndex] : undefined,
+      majority: +this.data.majorityIndex ? this.data.majority[this.data.majorityIndex] : undefined,
+      entryDate: +this.data.entryDateIndex ? this.data.entryDate[this.data.entryDateIndex] : undefined,
+      graduationDate: +this.data.graduationDateIndex ? this.data.graduationDate[this.data.graduationDateIndex] : undefined,
+      degree: +this.data.degreeIndex ? this.data.degree[this.data.degreeIndex]:undefined,
       name: this.data.name,
       schoolnum: this.data.schoolnum,
-      sjgzdwmc: this.data.jydw
+      sjgzdwmc: this.data.jydw,
+      pagesize: 20
     }
+    if(this.data.name){
+      query = {name:this.data.name}
+    }
+    if(this.data.schoolnum){
+      query = {schoolnum:this.data.schoolnum}
+    }
+    console.log(`/pages/list/list?query=${JSON.stringify(query)}`)
     wx.navigateTo({
       url:`/pages/list/list?query=${JSON.stringify(query)}`
     })

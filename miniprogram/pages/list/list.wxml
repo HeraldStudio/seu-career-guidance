@@ -1,2 +1,29 @@
 <view class="page">
+    <view wx:for="{{list}}" wx:key="_id" class="cell" bindtap="bindClick">
+        <view class="name-schoolnum">
+            <view class="name">{{item.name}}</view>
+            <view class="schoolnum">{{item.schoolnum}}</view>
+        </view>
+
+        <view wx:if="{{item.college}}" class="item">
+            <view class="item-name">院系</view>
+            <view class="item-value">{{item.college}}</view>
+        </view>
+
+        <view wx:if="{{item.majority}}" class="item">
+            <view class="item-name">专业</view>
+            <view class="item-value">{{item.majority}}</view>
+        </view>
+
+        <view wx:if="{{item.sjgzdwmc}}" class="item">
+            <view class="item-name">就业单位</view>
+            <view class="item-value">{{item.sjgzdwmc}}</view>
+        </view>
+
+        <view wx:if="{{item.dwxz}}" class="item">
+            <view class="item-name">工作性质</view>
+            <view class="item-value">{{item.dwxz}}</view>
+        </view>
+
+    </view>
 </view>

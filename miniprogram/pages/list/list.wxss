@@ -1,0 +1,43 @@
+.cell{
+    width: 690rpx;
+    background: white;
+    border-style: solid none;
+    border-width: 2rpx;
+    border-color: #eee;
+    margin-top: 20rpx;
+    padding: 30rpx;
+}
+
+.cell:active{
+    background: #eee;
+}
+
+.name-schoolnum{
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10rpx;
+}
+
+.name{
+    font-size: 42rpx;
+    font-weight: bolder;
+}
+
+.schoolnum{
+    font-size: 28rpx;
+    color: #888;
+    margin-left: 20rpx;
+}
+
+.item{
+    display: flex;
+}
+
+.item-name{
+    color: #888;
+    flex-shrink: 0;
+}
+
+.item-value{
+    margin-left: 10rpx;
+}

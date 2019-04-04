@@ -6,7 +6,9 @@ Page({
      */
     data: {
         query:{},
-        page:1
+        page:1,
+        list:[],
+        more: true
     },
   
     /**
@@ -15,16 +17,30 @@ Page({
     onLoad: async function (options) {
       // 获取辅助数据
       this.setData({query:JSON.parse(options.query)})
-      console.log(this.data.query)
-      this.loadMore()
+      await this.loadMore()
+      if(this.data.list.length === 0){
+          wx.showToast({title:'查询无结果', icon:'none'})
+          setTimeout(()=>{wx.navigateBack()}, 1500)
+      }
     },
     
     loadMore: async function(){
+        if(!this.data.more){
+            return
+        }
+        wx.showLoading({title:'正在加载'})
         let res = await wx.cloud.callFunction({
             name:'search',
             data:{...this.data.query, page:this.data.page}
         })
         console.log(res)
+        if(res.result && res.result.list && res.result.list.length > 0){
+            console.log(res.result.list)
+            this.setData({list:this.data.list.concat(res.result.list), page:this.data.page+1})
+        } else {
+            this.setData({more:false})
+        }
+        wx.hideLoading()
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -65,7 +81,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-  
+        this.loadMore()
     },
   
     /**
@@ -73,6 +89,10 @@ Page({
      */
     onShareAppMessage: function () {
   
+    },
+    
+    bindClick: function(e){
+        console.log(e)
     }
   
   })

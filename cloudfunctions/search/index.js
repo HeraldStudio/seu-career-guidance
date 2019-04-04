@@ -15,12 +15,12 @@ exports.main = async (event, context) => {
 
   if(schoolnum){
     let res = await db.collection('origin-data').where({schoolnum}).get()
-    return res.data
+    return {list:res.data}
   }
 
   if(name){
     let res = await db.collection('origin-data').where({name}).get()
-    return res.data
+    return {list:res.data}
   }
 
 
