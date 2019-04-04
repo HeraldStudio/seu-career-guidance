@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "moment": "^2.24.0",
     "querystring": "^0.2.0",
     "weui-wxss": "^1.1.1"
   }

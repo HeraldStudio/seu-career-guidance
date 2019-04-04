@@ -1,0 +1,7 @@
+.weui-form-preview__value{
+    color:#333;
+}
+.page__title{
+    font-size: 50rpx;
+    font-weight: bolder;
+}

@@ -1,0 +1,72 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">{{item.name}}</view>
+        <view class="page__desc">学号:{{item.schoolnum}}</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__bd">
+                <view wx:if="{{item.sjgzdwmc}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">工作单位</view>
+                    <view class="weui-form-preview__value">{{item.sjgzdwmc}}</view>
+                </view>
+
+                <view wx:if="{{item.dwxz}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">工作性质</view>
+                    <view class="weui-form-preview__value">{{item.dwxz}}</view>
+                </view>
+                <view wx:if="{{item.sjszd}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">工作单位所在地</view>
+                    <view class="weui-form-preview__value">{{item.sjszd}}</view>
+                </view>
+
+                <view wx:if="{{item.college}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">所在院系</view>
+                    <view class="weui-form-preview__value">{{item.college}}</view>
+                </view>
+                <view wx:if="{{item.majority}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">就读专业</view>
+                    <view class="weui-form-preview__value">{{item.majority}}</view>
+                </view>
+                <view wx:if="{{item.degree}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">学历</view>
+                    <view class="weui-form-preview__value">{{item.degree}}</view>
+                </view>
+                <view wx:if="{{item.sex}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">性别</view>
+                    <view class="weui-form-preview__value">{{item.sex}}</view>
+                </view>
+                <view wx:if="{{item.birthdate}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">出生日期</view>
+                    <view class="weui-form-preview__value">{{item.birthdate}}</view>
+                </view>
+
+                <view wx:if="{{item.nationality}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">民族</view>
+                    <view class="weui-form-preview__value">{{item.nationality}}</view>
+                </view>
+
+                <view wx:if="{{item.zzmm}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">政治面貌</view>
+                    <view class="weui-form-preview__value">{{item.zzmm}}</view>
+                </view>
+
+                <view wx:if="{{item.entryDate}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">入学时间</view>
+                    <view class="weui-form-preview__value">{{item.entryDate}}</view>
+                </view>
+
+                <view wx:if="{{item.graduationDate}}" class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">毕业时间</view>
+                    <view class="weui-form-preview__value">{{item.graduationDate}}</view>
+                </view>
+
+
+            </view>
+            <view class="weui-form-preview__ft">
+                <navigator open-type="navigateBack" class="weui-form-preview__btn weui-form-preview__btn_primary"
+                    hover-class="weui-form-preview__btn_active">返回</navigator>
+            </view>
+        </view>
+    </view>
+</view>
