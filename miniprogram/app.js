@@ -1,4 +1,5 @@
-//app.js
+
+// by 狼剩子 & 人型培养基
 App({
   onLaunch: function () {
     // 展示本地存储能力
