@@ -92,7 +92,9 @@ Page({
     },
     
     bindClick: function(e){
-        console.log(e)
+        // 赵拯基在此处写跳转到详情页的逻辑
+        console.log(e.currentTarget.dataset.item)
+        // item中是被点击条目的所有数据
     }
   
   })

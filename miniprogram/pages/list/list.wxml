@@ -1,5 +1,6 @@
 <view class="page">
-    <view wx:for="{{list}}" wx:key="_id" class="cell" bindtap="bindClick">
+    <view wx:for="{{list}}" wx:key="_id" >
+        <view class="cell" data-item="{{item}}" bindtap="bindClick">
         <view class="name-schoolnum">
             <view class="name">{{item.name}}</view>
             <view class="schoolnum">{{item.schoolnum}}</view>
@@ -24,6 +25,6 @@
             <view class="item-name">工作性质</view>
             <view class="item-value">{{item.dwxz}}</view>
         </view>
-
+    </view>
     </view>
 </view>
