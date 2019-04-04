@@ -8,5 +8,6 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "东大就业信息检索",
     "navigationBarTextStyle":"black"
-  }
+  },
+  "navigateToMiniProgramAppIdList":["wxaef6d2413690047f"]
 }
