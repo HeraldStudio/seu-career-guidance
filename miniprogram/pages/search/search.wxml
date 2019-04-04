@@ -58,7 +58,7 @@
             </view>
         </view>
 
-        <view wx:if="{{!name && !schoolnum}}" class="weui-cells__title">学历选择</view>
+        <view wx:if="{{!name && !schoolnum}}" class="weui-cells__title">选择毕业学历</view>
         <view wx:if="{{!name && !schoolnum}}" class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_select">
                 <view class="weui-cell__hd weui-cell__hd_in-select-after">

@@ -188,7 +188,7 @@ Page({
       name: this.data.name,
       schoolnum: this.data.schoolnum,
       sjgzdwmc: this.data.jydw,
-      pagesize: 20
+      pagesize: 100
     }
     if(this.data.name){
       query = {name:this.data.name}

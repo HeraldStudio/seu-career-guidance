@@ -93,9 +93,12 @@ Page({
     
     bindClick: function(e){
         // 赵拯基在此处写跳转到详情页的逻辑
-        let item = e.currentTarget.dataset.item
-        console.log(item)
         // item中是被点击条目的所有数据
+        
+        wx.navigateTo({
+            //url:`/pages/detail/detail?query=${JSON.stringify(e.currentTarget.dataset.item)}`
+            url:`/pages/detail/detail?item=${JSON.stringify(e.currentTarget.dataset.item)}`
+        })
     }
   
   })
