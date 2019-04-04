@@ -9,7 +9,17 @@ exports.main = async (event, context) => {
   // openid: wxContext.OPENID,
   // appid: wxContext.APPID,
   // unionid: wxContext.UNIONID,
-  // TODO: 鉴权
+  // 鉴权
+  let openid = wxContext.OPENID
+  let idsRecord = await db.collection('authority').where({openid}).get()
+  if(idsRecord.data.length === 0){
+    return 'ids-error'
+  }
+  cardnum = idsRecord.data[0].cardnum
+  let allow = await db.collection('allowed-user').where({cardnum}).get()
+  if(allow.data.length === 0){
+    return 'forbidden'
+  }
 
   let {college, majority, entryDate, graduationDate, schoolnum, name, sjgzdwmc, degree ,page=1, pagesize=100} = event
 

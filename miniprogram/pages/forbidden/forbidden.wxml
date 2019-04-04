@@ -1,0 +1,8 @@
+<view class="page">
+    <icon class="logo" type="warn" size="300rpx" />
+    <text class="title">无权访问</text>
+    <text class="desc">请与东南大学就业指导中心联系</text>
+    <text class="bottom">
+           东南大学小猴偷米工作室技术支持
+    </text>
+</view>

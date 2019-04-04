@@ -19,7 +19,6 @@
 
 .desc{
     margin: 30rpx 60rpx;
-    text-indent: 2em;
     color: #888;
 }
 

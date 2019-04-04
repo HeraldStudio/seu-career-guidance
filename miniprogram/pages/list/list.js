@@ -34,6 +34,14 @@ Page({
             data:{...this.data.query, page:this.data.page}
         })
         console.log(res)
+        if(res.result === 'ids-error'){
+            wx.reLaunch({url:'/pages/welcome/welcome'})
+            return
+        }
+        if(res.result === 'forbidden'){
+            wx.reLaunch({url:'/pages/forbidden/forbidden'})
+            return
+        }
         if(res.result && res.result.list && res.result.list.length > 0){
             console.log(res.result.list)
             this.setData({list:this.data.list.concat(res.result.list), page:this.data.page+1})

@@ -1,0 +1,11 @@
+<view class="page">
+    <image class="logo" src="校徽.png"></image>
+    <text class="title">学生就业信息查询平台</text>
+    <text class="desc">为了保证数据安全，需要对您进行身份认证，请点击下方按钮并按照提示进行操作。</text>
+    <navigator target="miniProgram" app-id="wxaef6d2413690047f" path="pages/index" extra-data="force=true">
+            <button  class="weui-btn" type="primary" bindtap="bindClick">统一身份认证登录</button>
+    </navigator>
+    <text class="bottom">
+           东南大学小猴偷米工作室技术支持
+    </text>
+</view>
