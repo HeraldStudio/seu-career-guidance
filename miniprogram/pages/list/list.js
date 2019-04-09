@@ -8,7 +8,8 @@ Page({
         query:{},
         page:1,
         list:[],
-        more: true
+        more: true,
+        countHint:'检索中...'
     },
   
     /**
@@ -44,7 +45,7 @@ Page({
         }
         if(res.result && res.result.list && res.result.list.length > 0){
             console.log(res.result.list)
-            this.setData({list:this.data.list.concat(res.result.list), page:this.data.page+1})
+            this.setData({countHint:`共 ${res.result.count} 条记录`,list:this.data.list.concat(res.result.list), page:this.data.page+1})
         } else {
             this.setData({more:false})
         }

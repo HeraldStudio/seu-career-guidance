@@ -52,6 +52,7 @@ Page({
     let res = await wx.cloud.callFunction({
       name:'getHelperData'
     })
+    console.log(res)
     this.setData({
       collegeMap:res.result.collegeMap,
       entryDate:['不限', ...res.result.entryDate],
