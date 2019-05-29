@@ -52,7 +52,7 @@ Page({
     let res = await wx.cloud.callFunction({
       name:'getHelperData'
     })
-    console.log(res)
+    //console.log(res)
     this.setData({
       collegeMap:res.result.collegeMap,
       entryDate:['不限', ...res.result.entryDate],
@@ -186,9 +186,9 @@ Page({
       entryDate: +this.data.entryDateIndex ? this.data.entryDate[this.data.entryDateIndex] : undefined,
       graduationDate: +this.data.graduationDateIndex ? this.data.graduationDate[this.data.graduationDateIndex] : undefined,
       degree: +this.data.degreeIndex ? this.data.degree[this.data.degreeIndex]:undefined,
-      name: this.data.name,
-      schoolnum: this.data.schoolnum,
-      sjgzdwmc: this.data.jydw,
+      name: this.data.name ? this.data.name : undefined,
+      schoolnum: this.data.schoolnum ? this.data.schoolnum : undefined,
+      sjgzdwmc: this.data.jydw ? this.data.jydw : undefined,
       pagesize: 100
     }
     if(this.data.name){
@@ -197,9 +197,28 @@ Page({
     if(this.data.schoolnum){
       query = {schoolnum:this.data.schoolnum}
     }
-    console.log(`/pages/list/list?query=${JSON.stringify(query)}`)
-    wx.navigateTo({
-      url:`/pages/list/list?query=${JSON.stringify(query)}`
+    //console.log(`/pages/list/list?query=${JSON.stringify(query)}`)
+    
+    wx.request({
+      url:"http://localhost:3001/query",
+      method:"POST",
+      header:{
+        token:wx.getStorageSync("token"),
+        isIdentity:"true"
+      },
+      success(res){
+        console.log(res.data)
+        if(res.data.code==200){
+          wx.navigateTo({
+            url:`/pages/list/list?query=${JSON.stringify(query)}`
+          })
+        }else{
+          console.log("fobbidden")
+          wx.navigateTo({
+            url:`/pages/forbidden/forbidden`
+          })
+        }
+      }
     })
   }
 

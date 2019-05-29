@@ -2,7 +2,7 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": false,
 		"postcss": false,
 		"minified": false,
@@ -12,6 +12,8 @@
 	"appid": "wxc26ba547e1358c1d",
 	"projectname": "seu-career-guidance-cloud",
 	"libVersion": "2.6.2",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -50,6 +52,17 @@
 					"pathName": "pages/welcome/welcome",
 					"query": "query={\"college\":\"交通学院\",\"name\":\"\",\"schoolnum\":\"\",\"sjgzdwmc\":\"\"}",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "模拟统一身份认证",
+					"pathName": "pages/welcome/welcome",
+					"query": "",
+					"scene": 1038,
+					"referrerInfo": {
+						"appId": "wxaef6d2413690047f",
+						"extraData": "{\"name\":\"赵拯基\",\"cardnum\":\"213171610\"}"
+					}
 				}
 			]
 		}
