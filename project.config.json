@@ -3,15 +3,16 @@
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
 		"urlCheck": false,
-		"es6": false,
+		"es6": true,
 		"postcss": false,
 		"minified": false,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"appid": "wxc26ba547e1358c1d",
 	"projectname": "seu-career-guidance-cloud",
-	"libVersion": "2.6.2",
+	"libVersion": "2.7.0",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -31,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -63,6 +64,20 @@
 						"appId": "wxaef6d2413690047f",
 						"extraData": "{\"name\":\"赵拯基\",\"cardnum\":\"213171610\"}"
 					}
+				},
+				{
+					"id": 4,
+					"name": "图表页",
+					"pathName": "pages/chart/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索页",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

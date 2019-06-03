@@ -9,7 +9,7 @@ App({
     wx.cloud.init()
   },
 
-  async onShow(obj) {
+  onShow(obj) {
     
 
     if(obj.scene === 1038){
@@ -69,7 +69,7 @@ App({
           success(loginRes){
             if(loginRes.data.success){
               wx.setStorageSync("token", loginRes.data.result)
-              wx.redirectTo({url:'/pages/search/search'})
+              //wx.redirectTo({url:'/pages/search/search'})
               return
            } else {
               wx.redirectTo({url:'/pages/forbidden/forbidden'})

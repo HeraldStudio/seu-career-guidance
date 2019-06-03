@@ -15,14 +15,15 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: async function (options) {
+    onLoad: function (options) {
         this.setData({ query: JSON.parse(options.query) })
         // 获取辅助数据
-        await this.loadMore()
-        if (this.data.list.length === 0) {
-            wx.showToast({ title: '查询无结果', icon: 'none' })
-            setTimeout(() => { wx.navigateBack() }, 1500)
-        }
+        this.loadMore().then(()=>{
+            if (this.data.list.length === 0) {
+                wx.showToast({ title: '查询无结果', icon: 'none' })
+                setTimeout(() => { wx.navigateBack() }, 1500)
+            }
+        })
     },
 
     loadMore: function () {

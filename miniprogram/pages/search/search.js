@@ -44,22 +44,25 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
+  onLoad: function (options) {
     //获取辅助数据
     //爱的魔力转圈圈 加载样式
+    let that = this
     wx.showLoading({title:'更新辅助数据'})
-    //调用云端函数加载数据
-    let res = await wx.cloud.callFunction({
-      name:'getHelperData'
+    wx.request({
+      url:"http://localhost:3001/addition",
+      method:"POST",
+      success(res){
+        that.setData({
+          college: that.data.college.concat(res.data.result["college"]),
+          majority: that.data.majority.concat(res.data.result["majority"]),
+          entryDate: that.data.entryDate.concat(res.data.result["entryDate"]),
+          graduationDate: that.data.graduationDate.concat(res.data.result["graduationDate"]),
+        })
+        console.log(that.data.majority)
+      }
     })
-    //console.log(res)
-    this.setData({
-      collegeMap:res.result.collegeMap,
-      entryDate:['不限', ...res.result.entryDate],
-      graduationDate:['不限', ...res.result.graduationDate],
-      college:['不限', ...Object.keys(res.result.collegeMap)],
-      degree:['不限',...res.result.degree]
-    })
+    
     wx.hideLoading()
   },
 

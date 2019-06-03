@@ -5,7 +5,7 @@
     "pages/detail/detail",
     "pages/welcome/welcome",
     "pages/forbidden/forbidden",
-    "pages/echart/echart"
+    "pages/chart/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
